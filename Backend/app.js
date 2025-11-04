@@ -13,30 +13,22 @@ const app = express();
 
 app.use(express.json()); //this middleware is needed for using axios - it parses the JSON coming into a usable javascript object(req)
 
-// app.use(cors({ //tells the browser to allow the requests coming from this URL
-//     origin: 'http://localhost:5173'
-// }))
-
-app.use(cors({
-    origin: '*',  // Allow all for now, we'll restrict later
+app.use(cors({ //tells the browser to allow the requests coming from this URL
+    origin: ['http://localhost:5173', 'https://tic-tac-toe-nu-three-18.vercel.app/'],
     credentials: true
-}));
+}))
+
 
 app.use(express.urlencoded({ extended: true })); //for handling encoding of post requests
 
 const httpServer = createServer(app);
-// const io = new Server(httpServer, {
-//     cors:{
-//         origin: 'http://localhost:5173'
-//     }
-// });
-
 const io = new Server(httpServer, {
-    cors: {
-        origin: '*',  // Allow all for now
+    cors:{
+        origin: ['http://localhost:5173', 'https://tic-tac-toe-nu-three-18.vercel.app/'],
         credentials: true
     }
 });
+
 
 io.on('connection', (socket)=>{
     let room = Math.floor(Math.random()*100);
