@@ -39,7 +39,8 @@ function reset(){
 
   useEffect(()=>{
     // Create socket connection
-    socketRef.current = io("http://localhost:4444");
+    // socketRef.current = io("http://localhost:4444");
+    socketRef.current = io("https://tictactoe-mzaw.onrender.com");
     
     // Set up event listeners IMMEDIATELY after connection
     socketRef.current.on('room', (data)=>{
