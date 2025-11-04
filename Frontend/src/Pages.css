@@ -105,3 +105,38 @@
   color: #ffffff;
   transform: translateX(-2px);
 }
+
+/* for mobile layout */
+
+@media (max-width: 900px) {
+  .page-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    padding: 1.2rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-header p {
+    font-size: 0.85rem;
+  }
+
+  .btn-home {
+    top: 0.6rem;
+    left: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}

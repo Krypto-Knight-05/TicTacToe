@@ -64,3 +64,29 @@
 .btn-home:hover {
   color: #ffffff;
 }
+
+/* for mobile layout */
+ 
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .btn-home {
+    font-size: 0.85rem;
+  }
+}
