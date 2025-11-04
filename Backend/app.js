@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 import cors from 'cors'; 
 import mongoose from 'mongoose';
-const PORT = 4444;
+const PORT = process.env.PORT || 4444;
 
 import { createServer } from 'http';
 import { Server } from 'socket.io';
@@ -13,16 +13,28 @@ const app = express();
 
 app.use(express.json()); //this middleware is needed for using axios - it parses the JSON coming into a usable javascript object(req)
 
-app.use(cors({ //tells the browser to allow the requests coming from this URL
-    origin: 'http://localhost:5173'
-}))
+// app.use(cors({ //tells the browser to allow the requests coming from this URL
+//     origin: 'http://localhost:5173'
+// }))
+
+app.use(cors({
+    origin: '*',  // Allow all for now, we'll restrict later
+    credentials: true
+}));
 
 app.use(express.urlencoded({ extended: true })); //for handling encoding of post requests
 
 const httpServer = createServer(app);
+// const io = new Server(httpServer, {
+//     cors:{
+//         origin: 'http://localhost:5173'
+//     }
+// });
+
 const io = new Server(httpServer, {
-    cors:{
-        origin: 'http://localhost:5173'
+    cors: {
+        origin: '*',  // Allow all for now
+        credentials: true
     }
 });
 
@@ -86,12 +98,16 @@ io.on('connection', (socket)=>{
 
 
 
-mongoose.connect('mongodb://localhost:27017/player')
-    .then(() => {
-        httpServer.listen(4444, () => {
-            console.log('http://localhost:4444')
-        });
-    })
-    .catch(err => {
-        console.log(err);
-    })
+// mongoose.connect('mongodb://localhost:27017/player')
+//     .then(() => {
+//         httpServer.listen(4444, () => {
+//             console.log('http://localhost:4444')
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     })
+
+httpServer.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
