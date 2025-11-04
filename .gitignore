@@ -1,0 +1,19 @@
+# Node
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# MongoDB
+data/
+WiredTiger*
+*.wt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

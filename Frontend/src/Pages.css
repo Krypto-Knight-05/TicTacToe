@@ -1,0 +1,107 @@
+/* Pages.css */
+.page-container {
+  width: 100%;
+  max-width: 450px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+}
+
+.page-header h1 {
+  color: #fdfdfd;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #bfc3d6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  text-align: left;
+  color: #d4d8eb;
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #3a4166;
+  background-color: #1c2135;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #6273f2;
+  box-shadow: 0 0 4px #6273f2;
+}
+
+.btn-container {
+  margin-top: 1rem;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #5468ff, #242b61);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, #6f7cff, #3a4180);
+}
+
+/* Pages.css - Home button placement & style */
+.page-container {
+  position: relative;
+}
+
+.btn-home {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cfd3f2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-home::before {
+  content: "←";
+  font-size: 1rem;
+  transform: translateY(-1px);
+}
+
+.btn-home:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateX(-2px);
+}
